@@ -1149,7 +1149,6 @@ GameObject:
   - component: {fileID: 1310119039}
   - component: {fileID: 1310119038}
   - component: {fileID: 1310119037}
-  - component: {fileID: 1310119040}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1234,23 +1233,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310119035}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1310119040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310119035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 11400000, guid: d368f2c47473d4bfb8dd9f08073cb403, type: 2}
-  phase: 0
-  thickness: 0
-  m_SourceCollider: {fileID: 1310119037}
-  m_DistanceField: {fileID: 0}
 --- !u!1 &1342257979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1245,6 @@ GameObject:
   - component: {fileID: 1342257984}
   - component: {fileID: 1342257983}
   - component: {fileID: 1342257982}
-  - component: {fileID: 1342257981}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -1285,23 +1266,6 @@ Transform:
   m_Father: {fileID: 280830205}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!114 &1342257981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342257979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 11400000, guid: d368f2c47473d4bfb8dd9f08073cb403, type: 2}
-  phase: 0
-  thickness: 0
-  m_SourceCollider: {fileID: 1342257982}
-  m_DistanceField: {fileID: 0}
 --- !u!64 &1342257982
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1915,23 +1879,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 265784438}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1816435418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816435416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 11400000, guid: 56297c6e785b44eb28e469b62cedc016, type: 2}
-  phase: 0
-  thickness: -0.01
-  m_SourceCollider: {fileID: 1816435419}
-  m_DistanceField: {fileID: 0}
 --- !u!136 &1816435419
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2972,8 +2919,6 @@ GameObject:
   - component: {fileID: 2055759475239793060}
   - component: {fileID: 2077901306290089370}
   - component: {fileID: 2077901306290089366}
-  - component: {fileID: 2077775411300918416}
-  - component: {fileID: 2077775411300918415}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -2981,36 +2926,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2077775411300918415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077775411300918414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kinematicForParticles: 0
---- !u!114 &2077775411300918416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077775411300918414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 11400000, guid: d368f2c47473d4bfb8dd9f08073cb403, type: 2}
-  phase: 0
-  thickness: 0
-  m_SourceCollider: {fileID: 2077901306290089366}
-  m_DistanceField: {fileID: 0}
 --- !u!64 &2077901306290089366
 MeshCollider:
   m_ObjectHideFlags: 0
