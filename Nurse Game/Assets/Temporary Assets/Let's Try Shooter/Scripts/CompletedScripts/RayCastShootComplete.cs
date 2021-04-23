@@ -14,7 +14,7 @@ public class RayCastShootComplete : MonoBehaviour {
 	private AudioSource gunAudio;										// Reference to the audio source which will play our shooting sound effect
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
-
+    public GameObject towel;
 
 	void Start () 
 	{
@@ -31,6 +31,7 @@ public class RayCastShootComplete : MonoBehaviour {
 
 	void Update () 
 	{
+
 		// Check if the player has pressed the fire button and if enough time has elapsed since they last fired
 		if (Input.GetButtonDown("Fire1") && Time.time > nextFire) 
 		{
@@ -38,7 +39,7 @@ public class RayCastShootComplete : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 
 			// Start our ShotEffect coroutine to turn our laser line on and off
-            StartCoroutine (ShotEffect());
+          StartCoroutine (ShotEffect());
 
             // Create a vector at the center of our camera's viewport
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint (new Vector3(0.5f, 0.5f, 0.0f));
@@ -71,21 +72,44 @@ public class RayCastShootComplete : MonoBehaviour {
 					// Add force to the rigidbody we hit, in the direction from which it was hit
 					hit.rigidbody.AddForce (-hit.normal * hitForce);
 				}
+                if(hit.collider.gameObject.tag == "Kitchen Towel")
+                {
+                    towel = hit.collider.gameObject;
+                    towel.GetComponent<Rigidbody>().isKinematic = true;
+                    towel.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane+1));
+                    towel.transform.parent = gunEnd.transform;
 
-				InteractableVideoUI interactedUI;
+                   
+                    Debug.Log(gunEnd.transform.position);
+                    Debug.Log(towel.transform.position);
+                }
+
+
+
+
+
+
+                    InteractableVideoUI interactedUI;
 				interactedUI = hit.collider.GetComponent<InteractableVideoUI>();
 				if(interactedUI != null)
                 {
 					interactedUI.ButtonPress();
 				}
 			}
+           
 			else
 			{
 				// If we did not hit anything, set the end of the line to a position directly in front of the camera at the distance of weaponRange
                 laserLine.SetPosition (1, rayOrigin + (fpsCam.transform.forward * weaponRange));
 			}
 		}
-	}
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Debug.Log("Right click");
+            towel.transform.parent = null;
+           towel.GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
 
 
 	private IEnumerator ShotEffect()

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Water
+  - Kitchen Towel
   layers:
   - Default
   - TransparentFX
