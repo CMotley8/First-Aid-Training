@@ -15,6 +15,8 @@ public class RayCastShootComplete : MonoBehaviour {
 	private LineRenderer laserLine;										// Reference to the LineRenderer component which will display our laserline
 	private float nextFire;												// Float to store the time the player will be allowed to fire again, after firing
     public GameObject towel;
+	public GameObject bandage;
+	public GameObject sterilePatch;
 
 	void Start () 
 	{
@@ -72,24 +74,31 @@ public class RayCastShootComplete : MonoBehaviour {
 					// Add force to the rigidbody we hit, in the direction from which it was hit
 					hit.rigidbody.AddForce (-hit.normal * hitForce);
 				}
-                if(hit.collider.gameObject.tag == "Kitchen Towel")
+
+
+                if(hit.collider.gameObject.tag == "Dry Towel" || hit.collider.gameObject.tag == "Wet Towel")
                 {
                     towel = hit.collider.gameObject;
                     towel.GetComponent<Rigidbody>().isKinematic = true;
                     towel.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane+1));
                     towel.transform.parent = gunEnd.transform;
-
-                   
-                    Debug.Log(gunEnd.transform.position);
-                    Debug.Log(towel.transform.position);
                 }
+				if (hit.collider.gameObject.tag == "Sterile Patch")
+				{
+					sterilePatch = hit.collider.gameObject;
+					sterilePatch.GetComponent<Rigidbody>().isKinematic = true;
+					sterilePatch.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane + 1));
+					sterilePatch.transform.parent = gunEnd.transform;
+				}
+				if (hit.collider.gameObject.tag == "Gauze")
+				{
+					bandage = hit.collider.gameObject;
+					bandage.GetComponent<Rigidbody>().isKinematic = true;
+					bandage.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane + 1));
+					bandage.transform.parent = gunEnd.transform;
+				}
 
-
-
-
-
-
-                    InteractableVideoUI interactedUI;
+				InteractableVideoUI interactedUI;
 				interactedUI = hit.collider.GetComponent<InteractableVideoUI>();
 				if(interactedUI != null)
                 {
@@ -105,10 +114,22 @@ public class RayCastShootComplete : MonoBehaviour {
 		}
         if (Input.GetButtonDown("Fire2"))
         {
-            Debug.Log("Right click");
-            towel.transform.parent = null;
-           towel.GetComponent<Rigidbody>().isKinematic = false;
-        }
+			if (towel.activeInHierarchy == true)
+            {
+				towel.transform.parent = null;
+				towel.GetComponent<Rigidbody>().isKinematic = false;
+			}
+			if (sterilePatch.activeInHierarchy == true)
+			{
+				sterilePatch.transform.parent = null;
+				sterilePatch.GetComponent<Rigidbody>().isKinematic = false;
+			}
+			if (bandage.activeInHierarchy == true)
+			{
+				bandage.transform.parent = null;
+				bandage.GetComponent<Rigidbody>().isKinematic = false;
+			}
+		}
     }
 
 

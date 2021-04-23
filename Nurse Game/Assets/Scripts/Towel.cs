@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Towel : MonoBehaviour
 {
+    public Material wetMat;
 
-    public Material mat;
     void OnTriggerEnter(Collider col)
     {
-       Debug.Log(col);
        if(col.gameObject.tag == "Water")
         {
-         GetComponent<Renderer>().material = mat;
+            GetComponent<Renderer>().material = wetMat;
+            gameObject.tag = "Wet Towel";
         }
     }
 }

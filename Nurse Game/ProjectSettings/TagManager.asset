@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Shootable
   - Water
-  - Kitchen Towel
+  - Burn Area
+  - Gauze
+  - Sterile Patch
+  - Dry Towel
+  - Wet Towel
   layers:
   - Default
   - TransparentFX
