@@ -11,14 +11,15 @@ TagManager:
   - Sterile Patch
   - Dry Towel
   - Wet Towel
+  - Towel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Grabbed Object
   - 
   - Lighting
   - 
