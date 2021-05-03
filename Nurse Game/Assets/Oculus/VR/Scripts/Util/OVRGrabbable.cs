@@ -33,9 +33,14 @@ public class OVRGrabbable : MonoBehaviour
     protected Collider m_grabbedCollider = null;
     protected OVRGrabber m_grabbedBy = null;
 
-	/// <summary>
-	/// If true, the object can currently be grabbed.
-	/// </summary>
+    public Renderer leftHandRenderer;
+    public Renderer rightHandRenderer;
+    private bool left;
+    private bool right;
+
+    /// <summary>
+    /// If true, the object can currently be grabbed.
+    /// </summary>
     public bool allowOffhandGrab
     {
         get { return m_allowOffhandGrab; }
@@ -114,6 +119,16 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.layer = 6;
+        if(grabbedBy.ToString() == "CustomHandLeft (OVRGrabber)")
+        {
+            left = true;
+            leftHandRenderer.enabled = false;
+        }
+        else if (grabbedBy.ToString() == "CustomHandRight (OVRGrabber)")
+        {
+            right = true;
+            rightHandRenderer.enabled = false;
+        }
     }
 
 	/// <summary>
@@ -128,6 +143,16 @@ public class OVRGrabbable : MonoBehaviour
         m_grabbedBy = null;
         m_grabbedCollider = null;
         gameObject.layer = 0;
+        if(left)
+        {
+            leftHandRenderer.enabled = true;
+            left = false;
+        }
+        else if(right)
+        {
+            rightHandRenderer.enabled = true;
+            right = false;
+        }
     }
 
     void Awake()

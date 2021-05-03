@@ -8,4 +8,12 @@ public class NextButtonControl : InteractableVideoUI
     {
         video.NextClip();
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        {
+            video.NextClip();
+        }
+    }
 }

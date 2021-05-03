@@ -18,7 +18,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class OVRGrabber : MonoBehaviour
-{
+{   
     // Grip trigger thresholds for picking up objects, with some hysteresis.
     public float grabBegin = 0.55f;
     public float grabEnd = 0.35f;

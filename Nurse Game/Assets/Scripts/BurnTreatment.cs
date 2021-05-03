@@ -5,23 +5,36 @@ using UnityEngine;
 public class BurnTreatment : MonoBehaviour
 {
     public bool[] step = new bool[3];
+    private OVRGrabbable oVRGrabbable;
 
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Wet Towel" && !step[1] && !step[2])
         {
             step[0] = true;
-            col.gameObject.SetActive(false);
+            oVRGrabbable = col.gameObject.GetComponent<OVRGrabbable>();
+            if (!oVRGrabbable.isGrabbed)
+            {
+                col.gameObject.SetActive(false);
+            }
         }
         if(col.gameObject.tag == "Sterile Patch" && step[0] && !step[2])
         {
             step[1] = true;
-            col.gameObject.SetActive(false);
+            oVRGrabbable = col.gameObject.GetComponent<OVRGrabbable>();
+            if (!oVRGrabbable.isGrabbed)
+            {
+                col.gameObject.SetActive(false);
+            }
         }
         if (col.gameObject.tag == "Gauze" && step[0] && step[1])
         {
             step[2] = true;
-            col.gameObject.SetActive(false);
+            oVRGrabbable = col.gameObject.GetComponent<OVRGrabbable>();
+            if (!oVRGrabbable.isGrabbed)
+            {
+                col.gameObject.SetActive(false);
+            }
             Completed();
         }
     }

@@ -8,4 +8,12 @@ public class PlaybuttonControl : InteractableVideoUI
     {
         video.PlayPause();
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if(col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        {
+            video.PlayPause();
+        }
+    }
 }
