@@ -6,16 +6,16 @@ using UnityEngine.UI;
 
 public class Video : MonoBehaviour
 {
+    public TextReader textReader;
     public Material playButtonMaterial;
     public Material pauseButtonMaterial;
     public Renderer playButtonRenderer;
     public VideoClip[] videoClips;
+    public double currentSeconds;
+    public double totalSeconds;
+
     private int videoClipIndex;
     private VideoPlayer videoPlayer;
-    public Text currentMinutes;
-    public Text currentSeconds;
-    public Text totalMinutes;
-    public Text totalSeconds;
 
 
     void Awake()
@@ -27,40 +27,30 @@ public class Video : MonoBehaviour
     {
         videoPlayer.targetTexture.Release();
         videoPlayer.clip = videoClips[0];
-    }
-
-    void Update()
-    {
-        /*if(videoPlayer.isPlaying)
-        {
-            SetCurrentTimeUI();
-        }*/
-
+        totalSeconds = videoPlayer.clip.length;
     }
 
     public void NextClip()
     {
         videoClipIndex++;
-        if(videoClipIndex >= 2)
+        if(videoClipIndex > videoClips.Length-1)
         {
-            videoClipIndex = 2;
+            videoClipIndex = videoClips.Length-1;
         }
-
         videoPlayer.clip = videoClips[videoClipIndex];
-        //SetTotalTimeUI();
+        textReader.NextStep();
         videoPlayer.Play();
     }
 
     public void PreviousClip()
     {
         videoClipIndex--;
-        if (videoClipIndex <= 0)
+        if (videoClipIndex < 0)
         {
             videoClipIndex = 0;
         }
-
         videoPlayer.clip = videoClips[videoClipIndex];
-        //SetTotalTimeUI();
+        textReader.PreviousStep();
         videoPlayer.Play();
     }
 
@@ -74,32 +64,7 @@ public class Video : MonoBehaviour
         else
         {
             videoPlayer.Play();
-            //SetTotalTimeUI();
             playButtonRenderer.material = pauseButtonMaterial;
         }
-    }
-
-    public void Replay()
-    {
-        if(currentMinutes == totalMinutes && currentSeconds == totalSeconds)
-        {
-
-        }
-    }
-
-    void SetCurrentTimeUI()
-    {
-        string minutes = Mathf.Floor((int)videoPlayer.time / 60).ToString("00");
-        string seconds = ((int)videoPlayer.time % 60).ToString("00");
-        currentMinutes.text = minutes;
-        currentSeconds.text = seconds;
-    }
-
-    void SetTotalTimeUI()
-    {
-        string minutes = Mathf.Floor((int)videoPlayer.clip.length / 60).ToString("00");
-        string seconds = ((int)videoPlayer.clip.length % 60).ToString("00");
-        totalMinutes.text = minutes;
-        totalSeconds.text = seconds;
     }
 }

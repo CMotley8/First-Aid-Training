@@ -9,11 +9,12 @@ public class NextButtonControl : InteractableVideoUI
         video.NextClip();
     }
 
-    void OnTriggerEnter(Collider col)
+    void OnTriggerExit(Collider col)
     {
         if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
         {
             video.NextClip();
+            video.playButtonRenderer.material = video.pauseButtonMaterial;
         }
     }
 }
