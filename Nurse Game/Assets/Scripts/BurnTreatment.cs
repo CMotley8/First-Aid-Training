@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class BurnTreatment : Treatment
 {
     public bool[] step = new bool[3];
+    public GameObject menuButtons;
 
     void OnTriggerEnter(Collider col)
     {
@@ -44,33 +45,16 @@ public class BurnTreatment : Treatment
     {
         // Placeholder; when the checklist is implemented there can be a big checkmark on the checklist.
         Debug.Log("The patient's burn as been treated!");
+        
         /*
-         * Psuedo-code:
-         * 
          *      Can  replace the treatment instructions and add three UI buttons; one to replay the scene, go to 
          *       main menu (would need to be created), and to go to the next treatment type (scene).
          *       
          *      Another option would be to make physical buttons like the play/next/previous buttons for the video player, instead of having UI buttons.
          *      The physical buttons would need to be somewhere near the player, such as on the table. If the buttons are on the table then the treatment
          *       instructions can be changed so that it is informing the player they have completed the treatment and needs to press one of the buttons on the table.
-         *      
-         *      replay button would be:
-         *      StepReplayButton.SetActive(true);
-         *      
-         *      main menu button would be:
-         *      StepMainMenuButton.SetActive(true);
-         *      
-         *      next treatment type button would be:
-         *      StepNextTreatment.SetActive(true);
-         *      
-         *      Change the scene by calling LoadScene(sceneName); (The scenes will need to be added to the Scene Manager and named correctly.)
-         * }
-         */
-    }
-
-    public override void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-        // run on (replay/main menu/next treatment) button click— assigned in the inspector.
+         */ 
+        // Makes the menu buttons appear
+        menuButtons.SetActive(true);
     }
 }

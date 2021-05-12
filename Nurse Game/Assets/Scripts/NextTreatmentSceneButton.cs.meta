@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 605cf0c7eacd6bd4188dd7180c738ae5
+guid: 6f6e4e4d2820ec246a4a936e9c8f34aa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - menuButtons: {fileID: 2016379478052707609, guid: 0cf17c4680b43d74eb696aac575a0452,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PreviousButtonControl : InteractableVideoUI
+public class NextVideoButton : InteractableVideoUI
 {
     public override void ButtonPress()
     {
-        video.PreviousClip();
+        video.NextClip();
     }
 
     void OnTriggerExit(Collider col)
     {
         if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
         {
-            video.PreviousClip();
+            video.NextClip();
             video.playButtonRenderer.material = video.pauseButtonMaterial;
         }
     }
