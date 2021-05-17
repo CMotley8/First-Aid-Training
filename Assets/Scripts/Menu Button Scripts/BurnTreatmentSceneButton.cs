@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuButton : MonoBehaviour
+public class BurnTreatmentSceneButton : MonoBehaviour
 {
     void OnTriggerExit(Collider col)
     {
         if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
         {
-            LoadScene("Main Menu");
+            LoadScene("Burn Treatment");
         }
     }
 

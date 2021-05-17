@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SelectTreatmentButton : MonoBehaviour
 {
@@ -18,20 +17,4 @@ public class SelectTreatmentButton : MonoBehaviour
             treatmentTypeButtons.SetActive(true);
         }
     }
-
-    /*
-     * Can use this for the specific scene buttons.
-
-    void OnTriggerExit(Collider col)
-    {
-        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
-        {
-            LoadScene(sceneName);
-        }
-    }
-
-    void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
-    }*/
 }

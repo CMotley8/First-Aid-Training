@@ -12,8 +12,6 @@ public class BurnTreatment : Treatment
     public GameObject hydroGelDressing;
     [Tooltip ("This is the GameObject for the gauze childed to the patient.")]
     public GameObject fakeGauze;
-    [Tooltip("This is the GameObject called 'Objects in room' in the hierarchy.")]
-    public GameObject objectsInRoom;
 
     void OnTriggerEnter(Collider col)
     {
@@ -59,7 +57,5 @@ public class BurnTreatment : Treatment
 
         // Show the menu buttons.
         menuButtons.SetActive(true);
-        // Optional, hide everything except the buttons and the instructions.
-        objectsInRoom.SetActive(false);
     }
 }
