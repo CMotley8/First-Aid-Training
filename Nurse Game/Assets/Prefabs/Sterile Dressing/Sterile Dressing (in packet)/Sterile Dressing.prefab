@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5464134192365366778}
   - component: {fileID: 5464134192365366781}
   m_Layer: 0
-  m_Name: Sterile Patch
-  m_TagString: Sterile Patch
+  m_Name: Sterile Dressing
+  m_TagString: Sterile Dressing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

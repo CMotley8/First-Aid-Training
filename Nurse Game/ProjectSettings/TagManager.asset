@@ -8,10 +8,10 @@ TagManager:
   - Water
   - Burn Area
   - Gauze
-  - Sterile Patch
   - Dry Towel
   - Wet Towel
   - Towel
+  - Sterile Dressing
   layers:
   - Default
   - TransparentFX

@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class BurnTreatment : Treatment
 {
+    [Tooltip("This is the number of steps the treatment has.")]
     public bool[] step = new bool[3];
+    [Tooltip("This is the GameObject for Menu buttons.")]
     public GameObject menuButtons;
+    [Tooltip("This is the GameObject for the hydrogel dressing childed to the patient.")]
+    public GameObject hydroGelDressing;
+    [Tooltip ("This is the GameObject for the gauze childed to the patient.")]
+    public GameObject fakeGauze;
+    [Tooltip("This is the GameObject called 'Objects in room' in the hierarchy.")]
+    public GameObject objectsInRoom;
 
     void OnTriggerEnter(Collider col)
     {
@@ -17,15 +23,15 @@ public class BurnTreatment : Treatment
             if (!oVRGrabbable.isGrabbed)
             {
                 step[0] = true;
-                col.gameObject.SetActive(false);
             }
         }
-        if(col.gameObject.tag == "Sterile Patch" && step[0] && !step[2])
+        if(col.gameObject.tag == "Sterile Dressing" && step[0] && !step[2])
         {
             oVRGrabbable = col.gameObject.GetComponent<OVRGrabbable>();
             if (!oVRGrabbable.isGrabbed)
             {
                 step[1] = true;
+                hydroGelDressing.SetActive(true);
                 col.gameObject.SetActive(false);
             }
         }
@@ -35,6 +41,8 @@ public class BurnTreatment : Treatment
             if (!oVRGrabbable.isGrabbed)
             {
                 step[2] = true;
+                fakeGauze.SetActive(true);
+                hydroGelDressing.SetActive(false);
                 col.gameObject.SetActive(false);
             }
             Completed();
@@ -43,18 +51,15 @@ public class BurnTreatment : Treatment
 
     public override void Completed()
     {
-        // Placeholder; when the checklist is implemented there can be a big checkmark on the checklist.
-        Debug.Log("The patient's burn as been treated!");
-        
         /*
-         *      Can  replace the treatment instructions and add three UI buttons; one to replay the scene, go to 
-         *       main menu (would need to be created), and to go to the next treatment type (scene).
-         *       
-         *      Another option would be to make physical buttons like the play/next/previous buttons for the video player, instead of having UI buttons.
-         *      The physical buttons would need to be somewhere near the player, such as on the table. If the buttons are on the table then the treatment
-         *       instructions can be changed so that it is informing the player they have completed the treatment and needs to press one of the buttons on the table.
-         */ 
-        // Makes the menu buttons appear
+         * Change the step instructions to tell the player they have completed the procedure and need to
+         * press a button to replay/quit/select a new treatment/go to main menu.
+         * 
+         */
+
+        // Show the menu buttons.
         menuButtons.SetActive(true);
+        // Optional, hide everything except the buttons and the instructions.
+        objectsInRoom.SetActive(false);
     }
 }
