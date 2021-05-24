@@ -52,10 +52,8 @@ public class BurnTreatment : Treatment
         /*
          * Change the step instructions to tell the player they have completed the procedure and need to
          * press a button to replay/quit/select a new treatment/go to main menu.
-         * 
          */
 
-        // Show the menu buttons.
         menuButtons.SetActive(true);
     }
 }
