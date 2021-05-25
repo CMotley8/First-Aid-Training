@@ -9,7 +9,7 @@ public class BurnTreatmentSceneButton : MonoBehaviour
     {
         if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
         {
-            LoadScene("Burn Treatment");
+            LoadScene("Burn");
         }
     }
 

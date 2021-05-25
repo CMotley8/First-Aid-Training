@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 16830abf1a7eb634e895f9c0a404038d
   - enabled: 1
-    path: Assets/Scenes/Burn Treatment.unity
+    path: Assets/Scenes/Burn.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/CPR.unity
@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Seizure.unity
     guid: 30df14890316a6b4794c786c1190fa99
+  - enabled: 1
+    path: Assets/Scenes/Heart Attack.unity
+    guid: a568eb58a4595494fb961e9de06d284e
+  - enabled: 1
+    path: Assets/Scenes/Choking.unity
+    guid: 68aad0b9d703c6348ac6ea154061642c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c733e25c251d22841861c91fb0784843,
       type: 2}
