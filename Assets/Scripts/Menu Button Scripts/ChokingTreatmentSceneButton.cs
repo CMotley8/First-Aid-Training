@@ -1,20 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ChokingTreatmentSceneButton : MonoBehaviour
+public class ChokingTreatmentSceneButton : SceneButton
 {
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
-        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig") //Checking for left or right hand's collider.
         {
             LoadScene("Choking");
         }
-    }
-
-    void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
     }
 }

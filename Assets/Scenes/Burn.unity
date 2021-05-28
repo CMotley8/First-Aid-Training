@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 9fd5c48ee4afc4c408432ba66c6b5919,
+  m_LightingDataAsset: {fileID: 112000000, guid: 2fd8d2d618103ba4a9c7aa7ca4a85dee,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f21cac5d5a45d4546bed289d4af0275e,
     type: 2}
@@ -7437,7 +7437,7 @@ PrefabInstance:
         type: 3}
       propertyPath: menuButtons
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6342150030122399572}
     - target: {fileID: 1531803916643784046, guid: e2620c7b6feead24aacb7285136bd8e5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -1,18 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class NextVideoButton : InteractableVideoUI
+public class NextVideoButton : InteractableVideoButton
 {
     public override void ButtonPress()
     {
         video.NextClip();
     }
 
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
-        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig") //Checking for either left hand or right hand's collider.
         {
             video.NextClip();
             video.playButtonRenderer.material = video.pauseButtonMaterial;

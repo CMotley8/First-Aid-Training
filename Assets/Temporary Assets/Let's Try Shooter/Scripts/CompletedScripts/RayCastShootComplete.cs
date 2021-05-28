@@ -98,11 +98,11 @@ public class RayCastShootComplete : MonoBehaviour {
 					bandage.transform.parent = gunEnd.transform;
 				}
 
-				InteractableVideoUI interactedUI;
-				interactedUI = hit.collider.GetComponent<InteractableVideoUI>();
-				if(interactedUI != null)
+				InteractableVideoButton interactedButton;
+				interactedButton = hit.collider.GetComponent<InteractableVideoButton>();
+				if(interactedButton != null)
                 {
-					interactedUI.ButtonPress();
+					interactedButton.ButtonPress();
 				}
 			}
            

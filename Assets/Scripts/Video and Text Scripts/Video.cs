@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.UI;
 
 public class Video : MonoBehaviour
 {
@@ -18,36 +15,35 @@ public class Video : MonoBehaviour
     public Renderer playButtonRenderer;
     [Tooltip("This is the array for your video clips that will be played in the scene.")]
     public VideoClip[] videoClips;
-
     public GameObject previousButton;
     public GameObject nextButton;
-    protected double currentTime;
-    protected double totalTime;
 
+    private double currentTime;
+    private double totalTime;
     private int videoClipIndex;
     private VideoPlayer videoPlayer;
 
 
-    void Awake()
+    private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
     }
 
-    void Start()
+    private void Start()
     {
         videoPlayer.targetTexture.Release();
         videoPlayer.clip = videoClips[0];
         previousButton.SetActive(false);
-        totalTime = videoPlayer.frameCount-1;
+        totalTime = videoPlayer.frameCount - 1;
     }
 
-    void Update()
+    private void Update()
     {
-        if(videoPlayer.isPlaying)
+        if (videoPlayer.isPlaying)
         {
             currentTime = videoPlayer.frame;
         }
-        if(videoPlayer.isPaused && (currentTime == totalTime))
+        if (videoPlayer.isPaused && (currentTime == totalTime))
         {
             playButtonRenderer.material = replayButtonMaterial;
         }
@@ -56,12 +52,12 @@ public class Video : MonoBehaviour
     public void NextClip()
     {
         videoClipIndex++;
-        if(videoClipIndex > videoClips.Length-1)
+        if (videoClipIndex > videoClips.Length - 1)
         {
-            videoClipIndex = videoClips.Length-1;
+            videoClipIndex = videoClips.Length - 1;
         }
         videoPlayer.clip = videoClips[videoClipIndex];
-        totalTime = videoPlayer.frameCount-1;
+        totalTime = videoPlayer.frameCount - 1;
         textReader.NextStep();
         videoPlayer.Play();
         ToggleButtonVisibility();
@@ -76,7 +72,7 @@ public class Video : MonoBehaviour
             videoClipIndex = 0;
         }
         videoPlayer.clip = videoClips[videoClipIndex];
-        totalTime = videoPlayer.frameCount-1;
+        totalTime = videoPlayer.frameCount - 1;
         textReader.PreviousStep();
         videoPlayer.Play();
         ToggleButtonVisibility();

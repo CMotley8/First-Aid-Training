@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 9fd5c48ee4afc4c408432ba66c6b5919,
+  m_LightingDataAsset: {fileID: 112000000, guid: 0a3cc3c8f6383d8469190096e1243d5c,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f21cac5d5a45d4546bed289d4af0275e,
     type: 2}
@@ -10410,10 +10410,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- The left thumbstick allows you to move around the room.\n- The right
-    thumbstick allows you to rotate without physically turning.\n- The menu button
-    will make buttons appear on the left side of the room.\n- Press and hold the
-    grip button to grab and hold an object\u2014 relese the grip button to drop the
-    object.\n- Interact with buttons in the game by pressing your hand against them
+    thumbstick allows you to rotate without physically turning.\n- Press and hold
+    the grip button to grab and hold an object\u2014 relese the grip button to drop
+    the object.\n- The menu button will make buttons appear on the left side of the
+    room.\n- Interact with buttons in the game by pressing your hand against them
     like you would in real life."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

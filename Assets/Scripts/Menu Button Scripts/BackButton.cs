@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackButton : MonoBehaviour
@@ -9,9 +7,9 @@ public class BackButton : MonoBehaviour
     [Tooltip("This is the GameObject for the buttons that appear after you press the Select Treatment button.")]
     public GameObject treatmentTypeButtons;
 
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
-        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig") //Checking for left or right hand's collider.
         {
             treatmentTypeButtons.SetActive(false);
             initialButtons.SetActive(true);

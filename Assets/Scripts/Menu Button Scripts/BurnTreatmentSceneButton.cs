@@ -1,20 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class BurnTreatmentSceneButton : MonoBehaviour
+public class BurnTreatmentSceneButton : SceneButton
 {
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
-        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig")
+        if (col.name == "LeftGrabVolumeBig" || col.name == "RightGrabVolumeBig") //Checking for left or right hand's collider.
         {
             LoadScene("Burn");
         }
-    }
-
-    void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
     }
 }
