@@ -1,1 +1,0 @@
-[```ReplaySceneButton```](https://github.com/CMotley8/First-Aid-Training/blob/d1d3a9e8d2c5cebfae482eee766b5b282edbddc4/Assets/Scripts/Menu%20Button%20Scripts/ReplaySceneButton.cs) derives from [```SceneButton```](Scene-Button) will load the current ```Scene``` once the player's hand leaves the collider (mimicking being able to hold down a button).
