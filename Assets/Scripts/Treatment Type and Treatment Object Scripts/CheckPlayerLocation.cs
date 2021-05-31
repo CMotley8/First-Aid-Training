@@ -3,14 +3,14 @@ using UnityEngine;
 public class CheckPlayerLocation : MonoBehaviour
 {
     [Tooltip("This is the ChokingTreatment script that is attached to some GameObject in your hierarchy.")]
-    public ChokingTreatment choking;
+    public ChokingTreatment chokingTreatment;
 
     private void OnTriggerEnter(Collider col)
     {
         //Only allowing the first step and ignoring all colliders that are not assigned the Player tag.
-        if (!choking.step[1] && !choking.step[2] && col.CompareTag("Player"))
+        if (!chokingTreatment.step[1] && !chokingTreatment.step[2] && col.CompareTag("Player"))
         {
-            choking.step[0] = true;
+            chokingTreatment.step[0] = true;
         }
     }
 }
